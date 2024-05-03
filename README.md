@@ -27,17 +27,17 @@ I did the basics of the project within the scope of BTK Academy Kotlin Advanced 
 #### User Account Page
 On this page the user can log in to their account or create a new account.
 
-![ss1_1]()
+![ss1_1](https://github.com/mozandastan/android-share-photos-app/assets/151640771/7ad8573d-2a32-41d7-9c27-a7b88257b36f)
 
 #### Feeds page
 On this page, the user can view his own and other users' posts.
 
-![ss2_1]() ![ss2_2]()
+![ss2_1](https://github.com/mozandastan/android-share-photos-app/assets/151640771/f6bd5a38-455f-493f-9e94-a1dd00d9634c) ![ss2_2](https://github.com/mozandastan/android-share-photos-app/assets/151640771/da951688-49e3-44e6-b674-fc4cde319e19)
 
 #### Share Photo Page
 On this page, the user can upload an image by selecting it from the gallery.
 
-![ss3_1]() ![ss3_2]()     
+![ss3_1](https://github.com/mozandastan/android-share-photos-app/assets/151640771/8bd37ad1-ba21-4340-a096-70eac3848d02)
 
 ---
 ## Libraries and technologies
