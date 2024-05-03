@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/share_photo"
-        android:title="Fotoğraf Paylaş" />
+        android:title="Share Photo" />
     <item
         android:id="@+id/logout"
-        android:title="Çıkış Yap" />
+        android:title="Sign Out" />
 </menu>
