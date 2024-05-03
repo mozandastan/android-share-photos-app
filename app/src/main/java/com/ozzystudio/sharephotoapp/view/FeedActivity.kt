@@ -7,13 +7,15 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.ozzystudio.sharephotoapp.model.Post
 import com.ozzystudio.sharephotoapp.R
 import com.ozzystudio.sharephotoapp.adapter.FeedAdapter
+import com.ozzystudio.sharephotoapp.databinding.ActivityFeedBinding
+import java.text.SimpleDateFormat
 
 class FeedActivity : AppCompatActivity() {
 
@@ -23,20 +25,21 @@ class FeedActivity : AppCompatActivity() {
     private var postList = ArrayList<Post>()
 
     private lateinit var feedAdapter: FeedAdapter
-    private lateinit var recyclerPost: RecyclerView
+    private lateinit var binding : ActivityFeedBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_feed)
+        //setContentView(R.layout.activity_feed)
+        binding = ActivityFeedBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setToolbar()
         setFirebase()
-        recyclerPost = findViewById(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(this)
-        recyclerPost.layoutManager = layoutManager
+        binding.recyclerView.layoutManager = layoutManager
 
         feedAdapter = FeedAdapter(postList)
-        recyclerPost.adapter = feedAdapter
+        binding.recyclerView.adapter = feedAdapter
     }
 
     private fun setToolbar(){
@@ -64,8 +67,13 @@ class FeedActivity : AppCompatActivity() {
                             val userEmail = doc.get("userEmail") as String
                             val userComment = doc.get("userComment") as String
                             val imageUrl = doc.get("imageUrl") as String
+                            val timestamp = doc.get("date") as Timestamp
 
-                            val downloadedPost = Post(userEmail,userComment,imageUrl)
+                            var date = timestamp.toDate()
+                            val sdf = SimpleDateFormat("hh:mm \n d/MM/yyyy")
+                            val dateString = sdf.format(date).toString()
+
+                            val downloadedPost = Post(userEmail,userComment,imageUrl,dateString)
                             postList.add(downloadedPost)
                         }
 
@@ -77,7 +85,6 @@ class FeedActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        //Menuyu aktivity ile bağlama
         val menuInflater = menuInflater
         menuInflater.inflate(R.menu.option_menu,menu)
         return true
@@ -88,9 +95,9 @@ class FeedActivity : AppCompatActivity() {
         if(item.itemId == R.id.share_photo){
             val intent = Intent(this, SharePhotoActivity::class.java)
             startActivity(intent)
-            //finish() bu yok çünkü geri tuşunun çalışmasını istiyorum.
+            //finish() Comment, Back button active
         }else if(item.itemId == R.id.logout){
-            auth.signOut() // firebaseden çık
+            auth.signOut() // firstly, sign out firebase
             val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
             finish()
