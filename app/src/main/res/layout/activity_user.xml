@@ -4,31 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.UserActivity">
+    tools:context=".view.UserActivity"
+    android:background="@color/grey">
 
     <EditText
         android:id="@+id/in_email"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:ems="10"
-        android:hint="Email adresinizi giriniz"
+        android:hint="Enter email adress"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/white"
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/in_password"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
-        android:hint="Şifrenizi giriniz"
+        android:hint="Enter password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/in_email" />
+        app:layout_constraintTop_toBottomOf="@+id/in_email"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/white"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/btn_giris"
@@ -37,9 +46,13 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:onClick="fncSignIn"
-        android:text="Giriş yap"
+        android:text="Sign In"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/in_password" />
+        app:layout_constraintTop_toBottomOf="@+id/in_password"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="15dp"/>
 
     <Button
         android:id="@+id/btn_kayit"
@@ -48,7 +61,12 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:onClick="fncSignUp"
-        android:text="Kayıt Ol"
+        android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/in_password" />
+        app:layout_constraintTop_toBottomOf="@+id/in_password"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="15dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

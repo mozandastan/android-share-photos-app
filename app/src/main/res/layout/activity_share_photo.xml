@@ -1,67 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SharePhotoActivity">
+    tools:context=".view.SharePhotoActivity"
+    android:background="@color/grey">
 
-    <ImageView
-        android:id="@+id/img_chooseimg"
-        android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="152dp"
-        android:onClick="choosePhoto"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/green" />
+        app:layout_constraintVertical_bias="0.138">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Görsel seçmek için tıklayın"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/img_chooseimg"
-        app:layout_constraintEnd_toEndOf="@+id/img_chooseimg"
-        app:layout_constraintStart_toStartOf="@+id/img_chooseimg"
-        app:layout_constraintTop_toTopOf="@+id/img_chooseimg" />
+        <ImageView
+            android:id="@+id/img_chooseimg"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:onClick="choosePhoto"
+            app:srcCompat="@color/purple" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Click here to choose image"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
 
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:ems="10"
-        android:hint="Yorum Giriniz"
-        android:textStyle="bold"
+        android:hint="Enter comment here"
         android:textSize="20sp"
-        android:inputType="text"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_chooseimg" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        android:inputType="text"
+        android:background="@color/white"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="251dp"
         android:onClick="sharePhoto"
         android:paddingHorizontal="50dp"
         android:paddingVertical="20dp"
-        android:text="Paylaş"
+        android:text="Share"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_chooseimg" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
