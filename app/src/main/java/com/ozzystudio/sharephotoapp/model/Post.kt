@@ -1,8 +1,7 @@
 package com.ozzystudio.sharephotoapp.model
 
-class Post(
+data class Post(
     var userEmail: String,
     var userComment: String,
     var imageUrl: String,
-    var date: String) {
-}
+    var date: String)

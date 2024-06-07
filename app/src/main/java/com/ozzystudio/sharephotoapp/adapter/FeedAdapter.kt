@@ -9,14 +9,6 @@ import com.squareup.picasso.Picasso
 
 class FeedAdapter(private val postList: ArrayList<Post>): RecyclerView.Adapter<FeedAdapter.PostHolder>() {
 
-    /*
-    inner class PostHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val txtEmail: TextView = itemView.findViewById(R.id.txt_email)
-        val txtComment: TextView = itemView.findViewById(R.id.txt_comment)
-        val txtDate: TextView = itemView.findViewById(R.id.txt_date)
-        val imgPost: ImageView = itemView.findViewById(R.id.img_post)
-    }
-     */
     inner class PostHolder(private val binding: PostItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(post: Post){
             binding.txtEmail.text = post.userEmail
@@ -39,12 +31,6 @@ class FeedAdapter(private val postList: ArrayList<Post>): RecyclerView.Adapter<F
     }
 
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
-        /*
-        holder.txtEmail.text = postList[position].userEmail
-        holder.txtComment.text = postList[position].userComment
-        holder.txtDate.text = postList[position].date
-        Picasso.get().load(postList[position].imageUrl).into(holder.imgPost)
-        */
         holder.bind(postList[position])
     }
 
